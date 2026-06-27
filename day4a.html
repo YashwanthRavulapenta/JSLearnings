@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DAY - 4</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <script>
+
+        let arr1 = [9835,967,668,78];
+        console.log(arr1);
+
+        let arr2 = new Array(2,4,67,78,78);
+        console.log(arr2);
+
+        let arr = new Array(5); //5 empty slots are reserved
+        arr[0] = "yash";
+        console.log(typeof arr);
+        console.log(typeof arr[0]);
+        console.log(typeof arr[2]);
+        console.log(typeof arr[4]);
+
+        //ES6 feature - Array Creation
+        let arr3 = Array(13,35,56,67);
+        console.log(arr3);
+
+        let lenArr3 = arr3.length;
+        console.log(lenArr3);
+
+        //Array methods 
+        let myArray = [98,83,54,78,23,44];
+        console.log(myArray.length);
+        console.log(myArray);
+
+        myArray.push(99);
+        console.log(myArray);
+
+        let popNumber = myArray.pop();
+        console.log(popNumber)
+        console.log(myArray);
+
+        myArray.pop();
+        console.log(myArray);
+
+        console.log(myArray.indexOf(54));
+        console.log(myArray.indexOf(0));
+
+        console.log(myArray.includes(99)); // returns boolean value , based on element presence
+        console.log(myArray.includes(78));
+
+        myArray.shift(); //removes first positioned element
+        console.log(myArray);
+
+        myArray.unshift(46);//add at first positioned place
+        console.log(myArray);
+
+        myArray[3] = 54;
+        console.log(myArray); // non-primitive data types are mutable
+
+        console.log(myArray.indexOf(54)); //return first index of an element
+        console.log(myArray.lastIndexOf(54)); //return fisrt index of element from last
+
+        console.log(myArray);
+        console.log(myArray.slice(2)); //extract overall part after index 3
+        console.log(myArray.slice(3,5)); // required part
+
+
+        console.log(myArray);
+        let spliceNum = myArray.splice(1,2);
+        console.log(typeof spliceNum);
+        console.log(`splice Number : ${spliceNum}`);
+        console.log(myArray);
+        myArray.splice(1,0,83,54); // goes to index 1 : delete Zero element , add 83 , 54 inplace of it
+
+        console.log(myArray.join()) //defalut comma separated string , join methods returns string
+        console.log(myArray.join()[2]);
+        console.log(myArray.join().length);
+        console.log(myArray.join('-'));
+        console.log(typeof myArray.join('-'));
+
+        console.log(myArray)
+        console.log(myArray.reverse());
+        console.log(myArray);
+        myArray.reverse();
+        console.log(myArray)
+        console.log(myArray.toString()); // returns string using comma separated by default
+        console.log(myArray.join()); //return string using comma separated by default
+        console.log(myArray.join('-')); // return new string using hypen separated 
+
+        let arr6 = ['yash' , 'snehu' , 'prabha' , 'don'];
+        let arr7 = arr6.sort(); // return new array by Assending order,it check char by char 
+        console.log(arr7);
+
+        let arr8 = [102,45,1,234,56];
+        arr8.sort(); // again it sorts usnig char by char not by numbers beacise of js Hetrogenity - apply for all same rule
+        //char-by-char rule for all 
+        console.log(arr8);
+
+        let arr9  = [12,4,6,68,24,56];
+        arr9.sort((a,b)=>a-b); //assending order
+        //a-b is : -ve as it is order
+        //a-b is : +ve swap those numbers
+        console.log(arr9);
+        let arr10 = [56 ,5,233,14,679,78];
+        arr10.sort((a,b)=>b-a);
+        console.log(arr10);
+
+
+        //spread operator usage
+        const array1 = [12,45,5,34,24];
+        const array2 = [9,88,99];
+        const ans = [array1,array2];
+        console.log(ans);
+        const ans1 = [...array1,...array2];
+        console.log(ans1);
+
+
+        //Flat usage
+        const array3 = [56,7,9,8,[34,[56,[78,5,67,78,[78,[99]]],75]],67,89];
+        const ans2 = array3.flat(); // removes one level of array inside | default value : 1
+        console.log(ans2);
+        const ans3 = array3.flat(2); //upto two levels 
+        console.log(ans3);
+        const ans4 = array3.flat(Infinity);
+        console.log(ans4);
+
+
+        
+
+
+        
+
+    </script>
+</body>
+</html>
