@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+    
+        let name = "yashwanth Ravulapenta";
+        let specification = "computer science";
+        let college = "ACE Engineering college";
+        const CGPA = 9.0;
+        let skills = "problem Solving and Analytics";
+        let frndName = "snehith 💩";
+
+
+        //string Interpolation 
+        let myIntro = `
+                        I am ${name} , a ${specification} 
+                        student from ${college} 
+                        having cgpa of ${CGPA} and passionate in ${skills} , 
+                        i have a best friend named as : ${frndName}
+                    `;
+        console.log(myIntro);
+        
+
+
+
+
+        //string functions 
+        let pet = "  snehith 💩      ";
+
+        console.log(pet.length);
+
+        console.log(pet.toUpperCase());
+
+        console.log(pet);
+
+        console.log(pet.charAt(3));
+        console.log(pet[-8]);
+        console.log(typeof pet[8]);
+
+        console.log(typeof pet);
+
+        console.log(pet.concat(" Ellenki"));
+        console.log(pet);
+
+        console.log(pet.indexOf('e')); //first occrance of char index
+        console.log(pet.lastIndexOf('e')) //first occurance of char index from last 
+
+        console.log(pet.endsWith("💩"));
+        
+        console.log(pet.startsWith("sne"))
+        
+        console.log(pet.repeat(3));
+
+        console.log(pet.includes('p'));
+
+        console.log(pet.includes("💩"));
+
+        console.log(pet.slice(-10)); //return form last
+
+        console.log(pet.substring(2,6)); // same as slice but no negative index
+
+        console.log(pet.length);
+        console.log(pet.trim().length);
+        console.log(pet.trimEnd().length);
+         console.log(pet.trimStart().length);
+
+        console.log(pet.toUpperCase().slice(4,7) + ':' + pet.toUpperCase().slice(4,7).length );
+
+        console.log(`upperCase : ${pet.toUpperCase()} and its lenght : ${pet.trim().length}`);
+
+
+        console.log(pet.replace('e', 'E'));
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Project</title>
+</head>
+<body>
+    <label>Guess A Number : </label>
+    <input type="number" placeholder="enter number " id="inputForNumber">
+    <button onclick="RandomGame()">Submit</button>
+    <p id="getInfoHere"></p>
+    <script>
+        let computerGuess = Math.floor(Math.random()*20);
+        let tries = 0;
+        function RandomGame(){
+            let userGuess = Number(document.getElementById('inputForNumber').value);
+            if(userGuess === computerGuess){
+                tries++;
+                document.getElementById('getInfoHere').innerText = `You won the Game in : ${tries} Tries`
+                //console.log(`you won the game after ${tries}`);
+            }else if(userGuess < computerGuess){
+                tries++;
+                //console.log("Guess big value")
+                document.getElementById('getInfoHere').innerText = 
+                    `Guess Something big`;
+            
+                document.getElementById("inputForNumber").value = "";
+            }else{
+                tries++;
+                //console.log("Guess small value")
+                 document.getElementById('getInfoHere').innerText =
+                    `Guess something small`;
+                
+                document.getElementById("inputForNumber").value = "";
+            }
+            
+        }
+    </script>
+</body>
+</html>

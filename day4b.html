@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS day 4b</title>
+</head>
+<body>
+    <h1>Objetcs in JS</h1>
+    <script>
+
+        //OBJECT - Object is a real world entity 
+        //         having State , Exhibits well defined behaviour and has Unique identification
+
+        //in Js OBJECT : is a data type stores value in the form of key-value pair
+        // behind the scene KEY is a string.
+
+        //CURD
+
+        //CREATE
+        let myIntro = {
+            name : "yashwanth",
+            age : 20,
+            age : 90,
+            cgpa : 9.3,
+            //innerObj : myIntro,
+            isPlaced : {
+                insideACE : false,
+                outsideACE : true,
+            },
+            "home address" : 'Garidepally'
+        };
+
+
+        console.log(myIntro.isPlaced) //optioanl Chaining is allowed after one level 
+        console.log(myIntro?.isPlaced?.insideACE);
+
+        //READ
+        console.log(myIntro);
+        console.log(typeof myIntro);
+
+        //UPDATE
+        myIntro.college = 'ACE'
+        myIntro['college'] = 'ACE';
+        myIntro['email'] = 'yashu@gmail.com';
+
+        //READ
+        console.log(myIntro);
+        console.log(myIntro.age);
+        console.log(myIntro.cgpa);
+        console.log(myIntro['name']);
+        console.log(myIntro.name);
+
+        //DELETE
+        delete myIntro.name; //delete a key-value pair from the object
+
+        console.log(myIntro);
+        //console.log(myIntro[name]);
+
+        console.log(Object.keys(myIntro)); //return array of keys in object
+        console.log(Object.values(myIntro)); // return array of values in object
+        console.log(Object.entries(myIntro)); //return array of [key , value] in object 
+
+
+        //not recommendaed for loop
+        for(let e in myIntro){
+            console.log(myIntro[e]);
+        }
+
+        for(let eachKey of Object.keys(myIntro)){
+            console.log(eachKey);
+        }
+
+        for(let eachValue of Object.values(myIntro)){
+            console.log(eachValue);
+        }
+
+        for(let eachEntry of Object.entries(myIntro)){
+            console.log(typeof eachEntry);
+            console.log(eachEntry);
+        }
+
+        //normally i created to test but it works fine
+        for(let ooo of Object.entries(myIntro)){
+            console.log(ooo[0],ooo[1]);
+        }
+
+
+
+        //object Destucturing 
+        const {age , college} = myIntro;
+        console.log(age,college);
+
+        // using Alias
+        const {age:myAge , college:favCollege} = myIntro;
+        console.log(myAge,favCollege);
+
+        let car = {
+            name : "Shift",
+            price: 60000,
+            componentsList : {
+                wheels:8000,
+                glasses:5000,
+                seats:3000
+            },
+            // in object we can create function also
+           // drive:function(){
+               // console.log("car start to drive with speed  : ");
+               // console.log(`the cost of car is : ${this.price}`);
+               // return 10;
+            //}
+        }
+
+        //console.log(car);
+       // let val = car.drive();
+        //console.log(val);
+
+
+        //shallow copy : shallow copy creates a new outer object , but nested objects are still shared
+        //single level
+
+
+        //shallow copy using spread
+        let carDemo = {...car};
+        console.log(carDemo===car); // false bcz carDemo creates new copy of car with another reference
+
+
+        //deep copy : it creates completly new object at every level.
+
+        //deep copy using method
+        //functions are not cloned , bcz they are executable codes 
+        let carDemo1 = structuredClone(car);
+        carDemo1.componentsList.steering = 10000;
+        console.log(car);
+        console.log(carDemo1);
+
+
+
+
+
+    </script>
+</body>
+</html>
