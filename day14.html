@@ -5,42 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            row-gap: 15px;
-            background-color: bisque;
-        }
         button{
             padding: 5px 20px 5px 20px;
             background-color: rgb(43, 57, 255);
             border: 1px solid green;
             border-radius: 6px;
-            font-size: 20px;
+            font-size: 15px;
             color: white;
         }
         .images{
             border-radius: 10px;
+            height:200px;
+        }
+        .image_box{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main_box{
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .desc_and_buttons_box{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .desc{
+            line-height: 25px;
+        }
+        .buttons_div{
+            display: flex;
+            justify-content: flex-start;
+            gap: 12px;
         }
     </style>
 </head>
 <body>
-    <h1 id="head" style="text-align: center;">Cricket</h1>
-    <div>
-        <img src="./crickbg.png" alt="crick" height="200px" class="images">
-    </div>
-    <div>
-        <button onclick="volley()">Volley</button>
-        <button onclick="khokho()">Kho-Kho</button>
-        <button onclick="kabbadi()">Kabbadi</button>
+    <!-- <h1 id="head" style="text-align: center;">Cricket</h1> -->
+
+    <div class="main_box">
+        <div class="image_box">
+            <img src="./crickbg.png" alt="crick" class="images">
+        </div>
+        <div class="desc_and_buttons_box">
+            <div class="desc">
+                <h1 id="courtName">Cricket Court</h1>
+                <p id="courtDesc">
+                    A well-maintained cricket ground with a quality pitch and lush outfield.<br>
+                    Designed to host practice sessions, league matches, and tournaments.<br>
+                    Provides an excellent playing experience for players of all skill levels.
+                </p>
+            </div>
+            <div class="buttons_div">
+                <button onclick="showCourt(1)">Volley</button>
+                <button onclick="showCourt(2)">Kho-Kho</button>
+                <button onclick="showCourt(3)">Kabbadi</button>
+                <button onclick="showCourt(4)">Cricket</button>
+            </div>
+        </div>
     </div>
 
     <script>
-        const img = document.querySelector('img');
         
-        function volley(){
+       /* function volley(){
             img.setAttribute('src','./volleybg.png')
             document.getElementById('head').innerText = 'Volley'
         }
@@ -51,7 +80,56 @@
         function kabbadi(){
             img.setAttribute('src','./kabbaddibg.png')
             document.getElementById('head').innerText = 'Kabbadi'
+        }*/
+
+
+        const sports = [
+            {
+                id: 1,
+                name: "Volleyball Court",
+                image: "./volleybg.png",
+                desc: `A professional volleyball court designed for exciting team matches.
+                        Built with a smooth playing surface and proper court markings.
+                        Perfect for practice sessions, tournaments, and recreational games.`
+            },
+            {
+                id: 2,
+                name: "Kho Kho Court",
+                image: "./kho-khobg.png",
+                desc: `A spacious Kho Kho court with clear boundary and lane markings.
+                        Designed to encourage speed, agility, and teamwork among players.
+                        Suitable for school competitions, training, and friendly matches.`
+            },
+            {
+                id: 3,
+                name: "Kabaddi Court",
+                image: "./kabbaddibg.png",
+                desc: `A standard Kabaddi court built for competitive and practice games.
+                        Features a safe playing surface with official court dimensions.
+                        Ideal for tournaments, fitness training, and team practice sessions.`
+            },
+            {
+                id: 4,
+                name: "Cricket Court",
+                image: "./crickbg.png",
+                desc: `A well-maintained cricket ground with a quality pitch and lush outfield.
+                    Designed to host practice sessions, league matches, and tournaments.
+                    Provides an excellent playing experience for players of all skill levels.`
+        
+            }
+
+        ];
+
+        const img = document.querySelector('img')
+        function showCourt(num){
+            const sportObj = sports.find(eachSportObj=>eachSportObj.id===num);
+            img.setAttribute('src',sportObj.image);
+            document.getElementById('courtName').innerText = sportObj.name
+            document.getElementById('courtDesc').innerText = sportObj.desc
         }
+
+
+
     </script>
 </body>
 
