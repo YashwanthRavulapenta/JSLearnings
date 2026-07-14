@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 15px;
+            background-color: bisque;
+        }
+        button{
+            padding: 5px 20px 5px 20px;
+            background-color: rgb(43, 57, 255);
+            border: 1px solid green;
+            border-radius: 6px;
+            font-size: 20px;
+            color: white;
+        }
+        .images{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="head" style="text-align: center;">Cricket</h1>
+    <div>
+        <img src="./crickbg.png" alt="crick" height="200px" class="images">
+    </div>
+    <div>
+        <button onclick="volley()">Volley</button>
+        <button onclick="khokho()">Kho-Kho</button>
+        <button onclick="kabbadi()">Kabbadi</button>
+    </div>
+
+    <script>
+        const img = document.querySelector('img');
+        
+        function volley(){
+            img.setAttribute('src','./volleybg.png')
+            document.getElementById('head').innerText = 'Volley'
+        }
+        function khokho(){
+            img.setAttribute('src','./kho-khobg.png')
+            document.getElementById('head').innerText = 'Kho-kho'
+        }
+        function kabbadi(){
+            img.setAttribute('src','./kabbaddibg.png')
+            document.getElementById('head').innerText = 'Kabbadi'
+        }
+    </script>
+</body>
+
+</html>
