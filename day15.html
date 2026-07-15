@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1{
+            color: rgb(190, 29, 174);
+        }
+        .eachName{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+    </div>
+    
+    <script>
+                const sports = [
+            {
+                id: 1,
+                name: "Volleyball Court",
+                image: "./volleybg.png",
+                desc: `A professional volleyball court designed for exciting team matches.
+                        Built with a smooth playing surface and proper court markings.
+                        Perfect for practice sessions, tournaments, and recreational games.`
+            },
+            {
+                id: 2,
+                name: "Kho Kho Court",
+                image: "./kho-khobg.png",
+                desc: `A spacious Kho Kho court with clear boundary and lane markings.
+                        Designed to encourage speed, agility, and teamwork among players.
+                        Suitable for school competitions, training, and friendly matches.`
+            },
+            {
+                id: 3,
+                name: "Kabaddi Court",
+                image: "./kabbaddibg.png",
+                desc: `A standard Kabaddi court built for competitive and practice games.
+                        Features a safe playing surface with official court dimensions.
+                        Ideal for tournaments, fitness training, and team practice sessions.`
+            },
+            {
+                id: 4,
+                name: "Cricket Court",
+                image: "./crickbg.png",
+                desc: `A well-maintained cricket ground with a quality pitch and lush outfield.
+                    Designed to host practice sessions, league matches, and tournaments.
+                    Provides an excellent playing experience for players of all skill levels.`
+        
+            }
+
+        ];
+
+        let titleArr = ""
+        sports.forEach((eachObj)=>{
+            titleArr +=`<h1>${eachObj.name}</h1>`
+        })
+        const con  = document.querySelector('.container');
+        con.innerHTML = titleArr;
+    </script>
+</body>
+</html>
