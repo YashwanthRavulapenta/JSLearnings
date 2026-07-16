@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .main_box{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        div{
+            align-items: center;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: rgb(247, 255, 209);
+        }
+        button{
+            padding: 5px 10px 5px 10px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            background-color: rgb(7, 61, 255);
+            color: white;
+        }
+        #OrdersList{
+            display: flex;
+            flex-direction: column;
+        }
+        .addButton{
+            background-color: chartreuse;
+            color:rgb(0, 0, 0);
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+        .each_order_div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main_box">
+        <div>Food Ordering</div>
+        <div>
+            <button onclick="addItem(1)">Add pizza</button>
+            <button onclick="addItem(2)">Add burger</button>
+            <button onclick="addItem(3)">Add drink</button>
+            <button onclick="addItem(4)">Add ice cream</button>
+        </div>
+        <div>
+            <h1>Orders List</h1>
+        </div>
+        <div id="OrdersList"></div>
+    </div>
+
+    <script>
+        const foodList = ["pizza Rs.100","burger Rs.200","drink rs.30","icecream Rs.50"]
+        const ordersContainer = document.getElementById('OrdersList')
+        function addItem(num){
+            /*const createPara = document.createElement("button")
+            createPara.innerText = foodList[num-1]
+            createPara.classList.add("addButton")
+            ordersContainer.prepend(createPara)*/
+
+            const createDiv = document.createElement('div')
+            createDiv.classList.add("each_order_div")
+            const createh1 = document.createElement('h1')
+            createh1.innerText = foodList[num-1]
+            const removeBtn = document.createElement('button')
+            removeBtn.innerText = "Remove"
+            createDiv.append(createh1)
+            createDiv.append(removeBtn)
+
+            ordersContainer.append(createDiv)
+
+            removeBtn.onclick = () =>{
+                createDiv.remove()
+            }
+        } 
+
+
+    </script>
+</body>
+</html>
