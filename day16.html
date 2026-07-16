@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h2>Heading</h2>
+        <p>first paragraph</p>
+        <p>second paragraph</p>
+    </div>
+    <script>
+        let con = document.getElementById('container')
+        let childs = con.children;
+        console.log(childs)
+
+        const para = document.querySelector('p')
+        console.log(para.parentElement)
+
+        console.log(con.firstChild)
+        console.log(con.lastChild)
+
+        console.log(con.firstElementChild)
+        console.log(con.lastElementChild)
+
+        const firstPara = con.children[1]
+        console.log(firstPara.nextElementSibling)
+
+        const secondPare = con.children[2]
+        console.log(secondPare.previousElementSibling)
+    </script>
+</body>
+</html>
