@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top:50px ;
+            background-color: blanchedalmond;
+        }
         .main_box{
             display: flex;
             flex-direction: column;
@@ -12,46 +19,150 @@
             justify-content: center;
             align-items: center;
         }
+        .age_calculator_head{
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
         .label_input_box{
             display: flex;
             justify-content: space-evenly;
             align-items: center;
             gap: 20px;
         }
+        label{
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        input{
+            padding: 5px 16px 5px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        button{
+            padding: 6px 15px 6px 15px;
+            border: 1px solid gray;
+            border-radius: 7px;
+            background-color: rgb(60, 60, 255);
+            color: white;
+            font-size: 18px;
+        }
+        .age_box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 5px;
+            width: 100%;
+        }
+        .each_div{
+            text-align: center;
+            width: 100%;
+            border: 1px solid rgb(19, 20, 20);
+            background-color: rgb(8, 34, 49);
+            padding: 15px;
+            font-size: 20px;
+            color: white;
+            text-transform: capitalize;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            font-family:Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 <body>
 
     <div class="main_box">
+        <div class="age_calculator_head">AGE CALCULATOR</div>
         <div>
             <div class="label_input_box">
                 <label for="">Date of Birth : </label>
-                <input type="text" placeholder="Enter..">
+                <input  placeholder="DD-MM-YYYY" id="inputFeild">
             </div>
-            <p>Enter date of birth in the format of : YYYY-MM-DD</p>
         </div>
         <div>
             <button onclick="ageCalculator()">Calculate</button>
         </div>
-        <div class="ageBox">
+        <div class="age_box">
 
         </div>
     </div>
 
     <script>
 
-        const currentTime = Date.now()
 
-        const myBirthTime = new Date(2008,12,20).getTime()
-        console.log(myBirthTime)
-        console.log(currentTime)
 
-        let diff = currentTime - myBirthTime;
-        console.log(`years : ${ Math.floor(diff/(1000*60*60*24*365))}`)
-        console.log(`years : ${ Math.ceil((Math.floor(diff%(1000*60*60*24*365)))/(1000*60*60*24*30))}`)
-        console.log(`months : ${ Math.floor(diff/(1000*60*60*24*30.3))}`)
-        console.log(`days : ${ Math.floor(diff/(1000*60*60*24))}`)
-        console.log(`years : ${ Math.floor(diff/(1000*60*60*24*365))}`)
+     
+        //console.log(`${years} years and ${months} months`)
+        //console.log(`overall : ${years*12 + months} months`)
+        //console.log(`overall : ${Math.floor(years*52.38+ months*4)} weeks`)
+
+        const ageContainer = document.querySelector('.age_box')
+        function ageCalculator(){
+
+            let input = document.getElementById("inputFeild").value
+            if(!input){
+                return alert(`enter date of birth`)
+            }
+            let arr = input.split("-");
+            let date = Number(arr[0])
+            let month = Number(arr[1])
+            let year = Number(arr[2])
+            
+            if(!date || !month || !year){
+                return alert('missing feilds')
+            }
+
+            if((date<1 || date>31)){
+                return alert('invalid date entered')
+            }
+
+            if(month<1 || month>=12){
+                return alert(`invalid month entered`)
+            }
+
+            if(year>2026 || year<0){
+                return alert('enter valid year')
+            }
+
+            const currentTime = Date.now()
+            const myBirthTime = new Date(year,month,date).getTime();
+
+            let diff = Math.abs(currentTime - myBirthTime);
+            let years =  Math.floor(diff/(1000*60*60*24*365))
+            let months = Math.ceil((Math.floor(diff%(1000*60*60*24*365.1)))/(1000*60*60*24*30));
+            if(months>0){
+                years = years + Math.floor(months/12)
+                months = months - Math.floor(months/12)
+            }
+
+            const years_and_months_div = document.createElement('div')
+            years_and_months_div.classList.add("each_div")
+            years_and_months_div.innerText = `${years} years & ${months} months`;
+            ageContainer.append(years_and_months_div)
+
+            setTimeout(()=>{
+                const overall_months_div = document.createElement('div')
+                overall_months_div.classList.add("each_div")
+                overall_months_div.innerText = `${years*12 + months} months`
+                ageContainer.append(overall_months_div)
+            },1000)
+
+            setTimeout(()=>{
+                const overall_weeks_div = document.createElement('div')
+                overall_weeks_div.classList.add("each_div")
+                overall_weeks_div.innerText = `${Math.floor(years*52.39+ months*4)} weeks`
+                ageContainer.append(overall_weeks_div)
+            },2000)
+
+
+        }
+        //console.log(`months : ${ Math.floor(diff/(1000*60*60*24*30.3))}`)
+        //console.log(`days : ${ Math.floor(diff/(1000*60*60*24))}`)
+        //console.log(`years : ${ Math.floor(diff/(1000*60*60*24*365))}`)
 
     </script>
     
