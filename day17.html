@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container"></div>
+    <input type="text">
+    <script>
+
+
+        
+        function submit(){
+            alert("hello yashh")
+        }
+
+        const container = document.querySelector('.container')
+        const btn = document.createElement('button')
+        btn.innerText = "submit";
+        container.appendChild(btn)
+
+        //btn.addEventListener('click',submit)
+
+        //btn.addEventListener('dblclick',submit)
+
+        //btn.addEventListener('mouseover',submit)
+
+        //btn.addEventListener('mouseleave', submit)
+
+        btn.addEventListener('mouseout',submit)
+
+    </script>
+</body>
+</html>
