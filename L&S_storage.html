@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local/Session</title>
+</head>
+<body>
+
+    <div>
+        <h1></h1>
+    </div>
+
+    <script>
+
+        let myH1 = document.querySelector("h1")
+
+        localStorage.setItem("name","yashwanth")
+        localStorage.setItem("age",20)
+
+        myH1.innerText = `${localStorage.getItem("name")}`
+
+
+        //const age = localStorage.getItem("age")
+        //console.log(Number(age)+10)
+        //console.log(age)
+
+        //localStorage.removeItem("age")
+
+        //localStorage.clear()
+
+        sessionStorage.setItem("contact",9346179135)
+
+
+    </script>
+    
+</body>
+</html>

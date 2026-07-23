@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+</head>
+<body>
+    <div class="time_box"></div>
+
+    <script>
+        const time_box = document.querySelector(".time_box")
+        setInterval(()=>{
+            let time = new Date()
+            time_box.innerHTML = time.toLocaleTimeString()
+        },1000)
+        
+    </script>
+</body>
+</html>

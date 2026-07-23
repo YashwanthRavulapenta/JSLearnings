@@ -116,3 +116,60 @@ for(let eachObj of arr){
     }
 }
 
+
+
+let day = prompt("Enter a day : ");
+switch(day){
+    case 'Monday':
+        console.log("sambar rice");
+        break;
+    case 'Tuesday':
+        console.log("lemon rice");
+        break;
+    case 'Wednesday':
+        console.log("Zeera rice");
+        break;
+    case 'Thrusday':
+        console.log("Egg rice");
+        break;
+    case 'Friday':
+        console.log("Veg rice")
+    case 'Saturday':
+        console.log("tomato rice");
+        break;
+    case 'Sunday':
+        console.log("chicken rice");
+        break;
+    default:
+        console.log("Nothing to cook"); 
+}
+
+
+let page = prompt("Enter a page : ");
+switch(page){
+    case 'Home':
+        console.log("you are in Home page");
+        break;
+    case 'About':
+        console.log("you are in about page");
+        break;
+    case 'Skills':
+        console.log("you are in skills page");
+        break;
+    case 'Projects':
+        console.log("You are in Projects page");
+        break;
+    case 'Contact':
+        console.log("You are in contact page");
+        break;
+    default:
+        console.log("No page is available"); 
+}
+
+let num = -2.5;
+switch(num){
+    case -2:
+        console.log("hii")
+    case -2.5:
+        console.log("hello")
+}

@@ -40,7 +40,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap:100px;
             text-transform: uppercase;
         }
     </style>
@@ -59,12 +59,34 @@
             <h1>Orders List</h1>
         </div>
         <div id="OrdersList"></div>
+        <div id="totalCost"></div>
     </div>
 
     <script>
-        const foodList = ["pizza Rs.100","burger Rs.200","drink rs.30","icecream Rs.50"]
+        //const foodList = ["pizza Rs.100","burger Rs.200","drink rs.30","icecream Rs.50"]
+        const foodList = [
+            {
+                name : "pizza", 
+                price : 100
+            },
+             {
+                name : "burger", 
+                price : 80
+            }
+            ,{
+                name : "drink", 
+                price : 100
+            }
+            ,{
+                name : "icecream", 
+                price : 100
+            }
+        ]
+        let total = 0;
+        const totalBox = document.getElementById('totalCost')
         const ordersContainer = document.getElementById('OrdersList')
         function addItem(num){
+
             /*const createPara = document.createElement("button")
             createPara.innerText = foodList[num-1]
             createPara.classList.add("addButton")
@@ -72,19 +94,33 @@
 
             const createDiv = document.createElement('div')
             createDiv.classList.add("each_order_div")
+
             const createh1 = document.createElement('h1')
-            createh1.innerText = foodList[num-1]
+            createh1.innerHTML = `${foodList[num-1].name} <span>$${foodList[num-1].price}<span>`
+
+            //total = total + foodList[num-1].price;
+            //totalBox.innerText = `${total}`
+
             const removeBtn = document.createElement('button')
             removeBtn.innerText = "Remove"
+
             createDiv.append(createh1)
             createDiv.append(removeBtn)
-
             ordersContainer.append(createDiv)
+            //ordersContainer.append(totalBox)
+            total = total + foodList[num-1].price;
 
-            removeBtn.onclick = () =>{
+            removeBtn.onclick = () => {
+                total = total - Number(createDiv.firstChild.lastChild.innerText.replace("$",""))
+                //console.log(Number(createDiv.firstChild.lastChild.innerText))
                 createDiv.remove()
+                return totalBox.innerText = `${total}`
             }
+
+            totalBox.innerHTML = `${total}`
+            ordersContainer.append(totalBox)
         } 
+        //ordersContainer.append(totalBox)
 
 
     </script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Tenetur itaque quibusdam, amet eos quam optio dolore aliquam 
+            <span onclick="clickDots()" id="dots" >...more</span>
+            <span id="remainContent" class="hidden" onclick="clickRemain()" >
+                accusamus numquam possimus praesentium consequuntur 
+                labore corrupti, officia, sint quae laborum corporis.
+            </span>
+        </h1>
+    </div>
+
+    <script>
+        const myDots = document.getElementById('dots')
+        const myContent = document.getElementById('remainContent')
+        function clickDots(){
+            myDots.classList.toggle("hidden")
+            myContent.classList.toggle("hidden")
+        }
+        function clickRemain(){
+            myDots.classList.toggle("hidden")
+            myContent.classList.toggle("hidden")
+        }
+    </script>
+</body>
+</html>
